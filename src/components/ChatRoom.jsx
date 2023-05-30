@@ -24,16 +24,18 @@ function ChatRoom({ auth, messagesRef, messagesQuery }) {
   }
 
   return (
-    <>
+    <div>
       <main>
       {messages && messages.map((msg, index) => <ChatMessage key={index} message={msg} auth={auth} />)}
       </main>
-
-      <form onSubmit={sendMessage}>
-        <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Message CS187" />
-        <button type="submit" disabled={!formValue}>🕊️</button>
-      </form>
-    </>
+      <div>
+        <form onSubmit={sendMessage}>
+          <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Message CS187" />
+          <button type="submit" disabled={!formValue}>🕊️</button>
+        </form>
+      </div>
+      
+    </div>
   )
 }
 
