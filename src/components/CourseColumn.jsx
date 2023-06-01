@@ -1,8 +1,8 @@
 import React from 'react'
 
-import SignOut from './SignOut';
+import CourseRoute from './CourseRoute';
 
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import SignOut from './SignOut';
 
 function CourseColumn({ auth }) {
   return (

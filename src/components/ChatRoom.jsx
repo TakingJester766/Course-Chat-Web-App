@@ -31,7 +31,7 @@ function ChatRoom({ auth, messagesRef, messagesQuery }) {
       <div>
         <form onSubmit={sendMessage}>
           <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Message CS187" />
-          <button type="submit" disabled={!formValue}><i class="fa-solid fa-paper-plane"></i></button>
+          <button type="submit" disabled={!formValue}><i className="fa-solid fa-paper-plane"></i></button>
         </form>
       </div>
     </div>
