@@ -2,39 +2,42 @@
   display: flex;
   text-align: center;
   margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
 }
 
-main {
+.chatroom-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.message-container {
   margin-top: 50px;
-  padding: 10px;
+  padding: 10px 75px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  padding-bottom: 70px;
-  max-height: calc(100vh - 7vh - 80px);
+  max-height: calc(100vh - 7vh);
 }
 
-
-
-main::-webkit-scrollbar {
+.message-container::-webkit-scrollbar {
   width: 0.25rem;
 }
 
-main::-webkit-scrollbar-track {
+.message-container::-webkit-scrollbar-track {
   background: #1e1e24;
 }
 
-main::-webkit-scrollbar-thumb {
+.message-container::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
 form {
   height: 7vh;
-  position: fixed;
-  bottom: 0;
   background-color: rgb(24, 23, 23);
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   display: flex;
   font-size: 1.5rem;
   margin-top: 10px; 
@@ -43,13 +46,10 @@ form {
   margin: 15px;
 }
 
-
-
 form button {
   width: 20%;
   background-color: rgb(56, 56, 143);
 }
-
 
 input {
   line-height: 1.5;
@@ -59,15 +59,15 @@ input {
   color: white;
   outline: none;
   border: none;
-  padding: 0 20px;
+  padding: 0 50px;
 }
 
 #chat-column input::placeholder {
-  padding-left: 20px; /* Adjust the value as needed */
+  padding-left: 20px;
 }
 
 button {
-  background-color: #282c34; /* Green */
+  background-color: #282c34;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -83,7 +83,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-
 .sign-in {
   color: #282c34;
   background: white;
@@ -92,16 +91,12 @@ button:disabled {
 }
 
 .sign-out {
-  /* make it be at the very bottom of the div */
   margin-top: auto;
   color: #282c34;
   background: white;
-  max-width: 400px;
   margin: 20px 50px;
-  /*round edges*/
   border-radius: 25px;
 }
-
 
 ul, li {
   text-align: left;
@@ -122,9 +117,8 @@ p {
 .message {
   display: flex;
   align-items: center;
-  padding: 0 100px;
+  padding: 0 25px;
 }
-
 
 .sent {
   flex-direction: row-reverse;
@@ -135,6 +129,7 @@ p {
   background: #0b93f6;
   align-self: flex-end;
 }
+
 .received p {
   background: #e5e5ea;
   color: black;
@@ -157,11 +152,15 @@ img {
 
 #course-column {
   flex: 0 0 30%;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }
 
 #chat-column {
   flex: 0 0 70%;
+  height: 100%; /* Adjust to the height of parent (.App) */
+  display: flex;
+  flex-direction: column;
 }
 
 .course-column-container {
@@ -171,4 +170,26 @@ img {
   height: 100%;
 }
 
+/* Spinner Loading Animation */
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Use vw (viewport width) instead of a percentage */
+  height: 100vh; /* Use vh (viewport height) instead of a percentage */
+  background-color: #2e333d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px; /* Adjust the size as per your preference */
+  height: 400px; /* Adjust the size as per your preference */
+}
 

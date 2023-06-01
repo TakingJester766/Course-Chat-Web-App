@@ -9,6 +9,7 @@ function CourseColumn({ auth }) {
     <div className="course-column-container">
         <h1>Course Column</h1>
         <SignOut auth={auth} />
+        
     </div>
   )
 }
