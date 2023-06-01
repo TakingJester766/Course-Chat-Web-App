@@ -1,0 +1,13 @@
+THIS WOULD BE A .JS FILE OTHERWISE, THIS IS SIMPLY DOCUMENTATION
+
+const config = {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
+}
+
+export default config;
