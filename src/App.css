@@ -114,6 +114,8 @@ p {
   text-align: center;
 }
 
+/* Course Column styling + chatroom */
+
 .message {
   display: flex;
   align-items: center;
@@ -142,14 +144,6 @@ img {
   margin: 2px 5px;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-}
-
 #course-column {
   flex: 0 0 30%;
   height: 100%;
@@ -163,7 +157,7 @@ img {
   flex-direction: column;
 }
 
-.course-column-container {
+#course-column-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -193,3 +187,11 @@ img {
   height: 400px; /* Adjust the size as per your preference */
 }
 
+/* courseRoute router styles */
+
+#course-route-container {
+  /*container top of parent div*/
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+}
