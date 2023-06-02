@@ -43,13 +43,14 @@ function App() {
   return (
     <div className='App'>
       <div id="course-column">
-        <CourseColumn auth={auth} />
+        <CourseColumn auth={auth} passSelectedCourse={handleSelectedCourse} />
       </div>
       <div id="chat-column">
-        {showSpinner ? <Spinner /> : <CourseChatRoom auth={auth} messagesRef={messagesRef} messagesQuery={messagesQuery} passSelectedCourse={handleSelectedCourse} />}
+        {showSpinner ? <Spinner /> : <CourseChatRoom auth={auth} selectedCourse={selectedCourse} messagesRef={messagesRef} messagesQuery={messagesQuery} />}
       </div>
     </div>    
   );
 }
+
 
 export default App;

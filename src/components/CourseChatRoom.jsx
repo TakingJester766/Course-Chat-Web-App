@@ -4,7 +4,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { addDoc, serverTimestamp } from "firebase/firestore";
 import ChatMessage from './ChatMessage';
 
-function CourseChatRoom({ auth, messagesRef, messagesQuery }) {
+function CourseChatRoom({ auth, messagesRef, messagesQuery, selectedCourse }) {
   const [formValue, setFormValue] = useState('');
   const [messages] = useCollectionData(messagesQuery, { idField: 'id' });
 
@@ -28,6 +28,7 @@ function CourseChatRoom({ auth, messagesRef, messagesQuery }) {
       <div className="message-container">
         {messages && messages.map((msg, index) => <ChatMessage key={index} message={msg} auth={auth} />)}
       </div>
+      <h1>{selectedCourse}</h1>
       <div>
         <form onSubmit={sendMessage}>
           <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Message CS187" />
