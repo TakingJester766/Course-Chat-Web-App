@@ -8,8 +8,11 @@ import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
 import Dashboard from './pages/Dashboard';
 import CourseColumn from './components/CourseColumn';
-import { auth, messagesRef, messagesQuery } from './ReadWrite/getMessages';
+import { messagesRef, messagesQuery } from './utils/getMessages';
 import Spinner from './components/Spinner';
+
+//import auth ONLY from firebase.js
+import { auth } from './configurations/firebase.js';
 
 function App() {
   const [user, loading] = useAuthState(auth);
