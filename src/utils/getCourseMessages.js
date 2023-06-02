@@ -3,16 +3,18 @@ import { firestore } from '../configurations/firebase.js';
 import getUid from './getUid.js';
 import getEnrolledCourses from "./getEnrolledCourses.js";
 
-const getCourseMessages = async () => {
-    const courseMessagesRef = await getDocs(collection(firestore, 'course-messages-sample', 'COMP SCI 230', 'messages'));
-    const courseMessages = [];
-    courseMessagesRef.forEach((doc) => {
-        courseMessages.push(doc.data());
-    }
-    );
-    
-    return courseMessages;
+const getCourseMessages = () => {
+    const courseMessagesCollection = collection(firestore, 'course-messages-sample', 'COMP SCI 230', 'messages');
+    const courseMessagesQuery = query(courseMessagesCollection, orderBy('createdAt'), limit(25));
+  
+    const courseData = {
+      msgQuery: courseMessagesQuery,
+      msgRef: courseMessagesCollection // Returning collection reference
+    };
+  
+    return courseData;
 }
+    
 
 //getCourseMessages().then(result => console.log(result));
 
