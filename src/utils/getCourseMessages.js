@@ -3,13 +3,18 @@ import { firestore } from '../configurations/firebase.js';
 import getUid from './getUid.js';
 import getEnrolledCourses from "./getEnrolledCourses.js";
 
-const getCourseMessages= async (courseName) => {
-    
-    const courseData = {
-        ref: collection(firestore, 'course-messages-sample', courseName, messages), //for addDoc in CourseChatRoom.jsx
-        query: await getDocs(collection(firestore, 'course-messages-sample', courseName, messages), orderBy('createdAt'), limit(100)) //for fetching chat history
+const getCourseMessages = async () => {
+    const courseMessagesRef = await getDocs(collection(firestore, 'course-messages-sample', 'COMP SCI 230', 'messages'));
+    const courseMessages = [];
+    courseMessagesRef.forEach((doc) => {
+        courseMessages.push(doc.data());
     }
-
+    );
+    
+    return courseMessages;
 }
+
+//getCourseMessages().then(result => console.log(result));
+
 
 export default getCourseMessages;
