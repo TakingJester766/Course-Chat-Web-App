@@ -7,7 +7,7 @@ import getCourseMessages from '../utils/getCourseMessages.js';
 
 function CourseChatRoom({ auth, selectedCourse }) {
   const [formValue, setFormValue] = useState('');
-  const courseData = getCourseMessages();
+  const courseData = getCourseMessages(selectedCourse);
   const messagesRef = courseData.msgRef;
   const [messages] = useCollectionData(courseData.msgQuery, { idField: 'id' });
 

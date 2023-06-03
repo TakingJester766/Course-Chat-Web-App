@@ -3,8 +3,8 @@ import { firestore } from '../configurations/firebase.js';
 import getUid from './getUid.js';
 import getEnrolledCourses from "./getEnrolledCourses.js";
 
-const getCourseMessages = () => {
-    const courseMessagesCollection = collection(firestore, 'course-messages-sample', 'COMP SCI 230', 'messages');
+const getCourseMessages = (courseName) => {
+    const courseMessagesCollection = collection(firestore, 'course-messages-sample', courseName, 'messages');
     const courseMessagesQuery = query(courseMessagesCollection, orderBy('createdAt'), limit(25));
   
     const courseData = {

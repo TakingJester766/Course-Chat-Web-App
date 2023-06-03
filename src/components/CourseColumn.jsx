@@ -2,27 +2,26 @@ import React, { useState, useEffect } from 'react';
 
 import CourseRoute from './CourseRoute';
 import getEnrolledCourses from '../utils/getEnrolledCourses.js';
-
-
 import SignOut from './SignOut';
 
 function CourseColumn(props) {
   const [courses, setCourses] = useState([]);
-  const [courseTitle, setCourseTitle] = useState('COMP SCI 230');
+  const [courseTitle, setCourseTitle] = useState('');
 
-  const { auth, passSelectedCourse } = props; // Destructure passSelectedCourse from props
+  const { auth, passSelectedCourse } = props; 
 
   useEffect(() => {
     getEnrolledCourses().then(
-      (courses) => setCourses(courses),
+      (courses) => {
+        setCourses(courses);
+        if (courses.length > 0) {
+          passSelectedCourse(courses[0].name); // Pass first course up to App component
+        }
+      },
       (error) => console.error(error)
     );
   }, []);
-
-  const handleButtonClick = (e) => {
-    setCourseTitle(e.target.value);
-    passSelectedCourse(e.target.value); // This function is now available through props
-  }
+  
 
   return (
     <div id="course-column-container">
@@ -30,13 +29,13 @@ function CourseColumn(props) {
 
       <div id='course-route-container'>
         {courses && courses.map((course, index) => (
-          <CourseRoute key={index} name={course.name} />
+          <CourseRoute 
+            key={index} 
+            name={course.name} 
+            passSelectedCourse={passSelectedCourse} 
+            setCourseTitle={setCourseTitle}
+          />
         ))}
-      </div>
-
-      <div>
-        <button value="COMP SCI 230" onClick={handleButtonClick}>CS230</button>
-        <button value="COMP SCI 220" onClick={handleButtonClick}>CS220</button>
       </div>
 
       <SignOut auth={auth} />
