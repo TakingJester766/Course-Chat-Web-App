@@ -8,7 +8,7 @@ import SignOut from './SignOut';
 
 function CourseColumn(props) {
   const [courses, setCourses] = useState([]);
-  const [courseTitle, setCourseTitle] = useState(null);
+  const [courseTitle, setCourseTitle] = useState('COMP SCI 230');
 
   const { auth, passSelectedCourse } = props; // Destructure passSelectedCourse from props
 
@@ -35,8 +35,8 @@ function CourseColumn(props) {
       </div>
 
       <div>
-        <button value="CS220" onClick={handleButtonClick}>CS220</button>
-        <button value="CS187" onClick={handleButtonClick}>CS187</button>
+        <button value="COMP SCI 230" onClick={handleButtonClick}>CS230</button>
+        <button value="COMP SCI 220" onClick={handleButtonClick}>CS220</button>
       </div>
 
       <SignOut auth={auth} />

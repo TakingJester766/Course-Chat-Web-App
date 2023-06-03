@@ -15,18 +15,16 @@ function App() {
   
   const [user, loading] = useAuthState(auth);
   const [showSpinner, setShowSpinner] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState('COMP SCI 230');
+
+
 
   const handleSignIn = () => {
     setShowSpinner(true);
-    // Perform your login process here
-
-    // Once login is complete, you can hide the spinner
     setShowSpinner(false);
   };
 
   if (loading) {
-    // Show the spinner while loading
     return <Spinner />;
   }
 
@@ -46,7 +44,7 @@ function App() {
         <CourseColumn auth={auth} passSelectedCourse={handleSelectedCourse} />
       </div>
       <div id="chat-column">
-        {showSpinner ? <Spinner /> : <CourseChatRoom auth={auth} selectedCourse={selectedCourse} messagesRef={messagesRef} messagesQuery={messagesQuery} />}
+        {showSpinner ? <Spinner /> : <CourseChatRoom auth={auth} selectedCourse={selectedCourse} />}
       </div>
     </div>    
   );
@@ -54,3 +52,5 @@ function App() {
 
 
 export default App;
+
+//        {showSpinner ? <Spinner /> : <ChatRoom auth={auth} messagesQuery={messagesQuery} messagesRef={messagesRef} />}

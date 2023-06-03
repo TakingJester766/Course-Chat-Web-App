@@ -13,7 +13,7 @@
 }
 
 .message-container {
-  margin-top: 50px;
+  margin-top: 25px;
   padding: 10px 75px;
   overflow-y: scroll;
   display: flex;
@@ -64,6 +64,10 @@ input {
 
 #chat-column input::placeholder {
   padding-left: 20px;
+}
+
+#input-field {
+  margin-top: auto;
 }
 
 button {
