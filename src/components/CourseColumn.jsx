@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import CourseRoute from './CourseRoute';
 import getEnrolledCourses from '../utils/getEnrolledCourses.js';
 import SignOut from './SignOut';
+import YourProfile from './YourProfile';
 
 function CourseColumn(props) {
   const [courses, setCourses] = useState([]);
   const [courseTitle, setCourseTitle] = useState('');
 
-  const { auth, passSelectedCourse } = props; 
+  const { auth, passSelectedCourse, setShowProfile } = props; 
 
   useEffect(() => {
     getEnrolledCourses().then(
@@ -37,7 +38,9 @@ function CourseColumn(props) {
           />
         ))}
       </div>
-
+      <div id='your-profile-route'>
+        <button onClick={() => setShowProfile(true)}>Your Profile</button>
+      </div>
       <SignOut auth={auth} />
     </div>
   );

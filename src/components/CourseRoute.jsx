@@ -10,7 +10,7 @@ function CourseRoute(props) {
 
   return (
     <div>
-      <button value={name} onClick={handleButtonClick}>{name}</button>
+      <button id='course-route' value={name} onClick={handleButtonClick}>{name}</button>
     </div>
   )  
 }

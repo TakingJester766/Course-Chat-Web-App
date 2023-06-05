@@ -8,6 +8,7 @@ import { messagesRef, messagesQuery } from './utils/getMessages';
 import Spinner from './components/Spinner';
 import CourseChatRoom from './components/CourseChatRoom';
 import getEnrolledCourses from './utils/getEnrolledCourses.js';
+import YourProfile from './components/YourProfile';
 
 //import auth ONLY from firebase.js
 import { auth } from './configurations/firebase.js';
@@ -16,6 +17,8 @@ function App() {
   const [user, loading] = useAuthState(auth);
   const [showSpinner, setShowSpinner] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [showProfile, setShowProfile] = useState(false);
+
 
   useEffect(() => {
     getEnrolledCourses().then(
@@ -39,17 +42,18 @@ function App() {
 
   const handleSelectedCourse = (courseTitle) => {
     setSelectedCourse(courseTitle);
+    setShowProfile(false);
   }
 
   return (
     <div className='App'>
       <div id="course-column">
-        <CourseColumn auth={auth} passSelectedCourse={handleSelectedCourse} />
+        <CourseColumn auth={auth} passSelectedCourse={handleSelectedCourse} setShowProfile={setShowProfile} />
       </div>
       <div id="chat-column">
-        {showSpinner ? <Spinner /> : selectedCourse && <CourseChatRoom auth={auth} selectedCourse={selectedCourse} />}
+        {showProfile ? <YourProfile /> : selectedCourse && <CourseChatRoom auth={auth} selectedCourse={selectedCourse} />}
       </div>
-    </div>    
+    </div> 
   );
 }
 
