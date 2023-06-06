@@ -35,7 +35,6 @@
 
 form {
   height: 7vh;
-  background-color: rgb(24, 23, 23);
   width: 100%;
   max-width: 1200px;
   display: flex;
@@ -203,4 +202,32 @@ img {
   display: flex;
   flex-direction: column;
   height: 100%; 
+}
+
+/* Profile view */
+
+#profile-container {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: center;
+}
+
+#profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.profile-item {
+  margin: 10px;
+  width: 30%;
+  border-radius: 10px;
+}
+
+#profile-button {
+  margin: 10px;
+  border-radius: 25px;
 }

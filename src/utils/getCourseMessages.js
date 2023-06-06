@@ -4,7 +4,7 @@ import getUid from './getUid.js';
 import getEnrolledCourses from "./getEnrolledCourses.js";
 
 const getCourseMessages = (courseName) => {
-    const courseMessagesCollection = collection(firestore, 'course-messages-sample', courseName, 'messages');
+    const courseMessagesCollection = collection(firestore, 'courses', courseName, 'messages');
     const courseMessagesQuery = query(courseMessagesCollection, orderBy('createdAt'), limit(25));
   
     const courseData = {
