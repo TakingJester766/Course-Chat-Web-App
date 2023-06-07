@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import getUid from '../utils/getUid';
 import getUserInfo from '../utils/getUserInfo';
 
+import { updateDoc } from "firebase/firestore";
+
 function YourProfile() {
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
@@ -33,7 +35,18 @@ function YourProfile() {
     setMajor(event.target.value);
   };
 
-  // ...
+  const updateProfile = async (event) => {
+    event.preventDefault();
+    const uid = await getUid();
+    const userInfo = await getUserInfo(uid);
+    const { ref: userInfoRef } = userInfo;
+    await updateDoc(userInfoRef, {
+      name: name,
+      bio: bio,
+      major: major
+    });
+  };
+  
 
   return (
     <div id="profile-container">
@@ -65,7 +78,7 @@ function YourProfile() {
           value={major}
           onChange={handleMajorChange}
         />
-        <button id="profile-button" type="submit">
+        <button onClick={updateProfile} id="profile-button" type="submit">
           Save Changes
         </button>
       </form>
