@@ -9,7 +9,7 @@ function CourseColumn(props) {
   const [courses, setCourses] = useState([]);
   const [courseTitle, setCourseTitle] = useState('');
 
-  const { auth, passSelectedCourse, setShowProfile } = props; 
+  const { auth, passSelectedCourse, setShowProfile, setShowAddCourse } = props; 
 
   useEffect(() => {
     getEnrolledCourses().then(
@@ -39,7 +39,8 @@ function CourseColumn(props) {
         ))}
       </div>
       <div id='your-profile-route'>
-        <button onClick={() => setShowProfile(true)}>Your Profile</button>
+        <button className='column-button' onClick={() => setShowProfile(true)}>Your Profile</button>
+        <button className='column-button' onClick={() => setShowAddCourse(true)}>Add a Class</button>
       </div>
       <SignOut auth={auth} />
     </div>

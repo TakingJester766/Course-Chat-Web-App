@@ -172,6 +172,10 @@ img {
   margin: 10px auto;
 }
 
+.column-button {
+  margin: 10px;
+}
+
 /* Spinner Loading Animation */
 
 .spinner-overlay {
