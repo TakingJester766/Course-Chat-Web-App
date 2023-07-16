@@ -11,6 +11,7 @@ const getAllCourses = async () => {
         return courses.push(doc.data());
     });
 
+    console.log(courses);
     return courses;
 }
 

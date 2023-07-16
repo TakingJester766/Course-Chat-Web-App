@@ -5,9 +5,9 @@ import getAllCourses from '../utils/getAllCourses.js';
 
 function AddCourse() {
 
-    const [courses, setCourses] = useState([]);
+    const [selctedCourse, setSelctedCourse] = useState();
 
-    useEffect(() => {
+    /*useEffect(() => {
         getAllCourses().then(
             (courses) => {
                 setCourses(courses);
@@ -15,14 +15,14 @@ function AddCourse() {
             },
             (error) => console.error(error)
         );
-    }, []);
+    }, []);*/
 
 
     return (
         <div id='add-course-container'>
             <h1>Add a Course</h1>
 
-            
+            <button onClick={getAllCourses}>Get All Courses</button>
 
 
         </div>
